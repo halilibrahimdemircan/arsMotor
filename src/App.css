@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f7f7f7;
+}
+.card-body-box {
+  width: auto;
+  height: 40px;
+  padding: 0.2rem;
+  border-style: solid;
+  border: 2px solid tomato !important;
+  font-weight: bold;
+  color: tomato;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.btn-aside {
+  font-weight: bold;
+  border: none;
+  margin-top: 1rem;
+}
+.cardHe {
+  height: 400px;
+  max-width: 300px;
+  min-width: 250px;
+}
+@media (max-width: 635px) {
+  .card-body-box {
+    font-size: 10px;
+  }
+}
