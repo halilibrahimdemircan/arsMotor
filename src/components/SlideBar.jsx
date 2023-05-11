@@ -1,52 +1,68 @@
-import { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
-import { TfiMinus } from "react-icons/tfi";
+import SideBarComponent from "./SideBarComponent";
+
 
 const SlideBar = () => {
-  const marka = ["AGV", "ARAI", "COX", "GIVI", "KAPPA"];
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
 
-  const altKategoriler = [
-    "Açık Kasklar",
-    "Buhar Camları",
-    "Kapalı Kasklar",
-    "Kask Camları",
-    "Kask Taşıma",
-    "Kask Yedek Parçaları",
-    "Kros ve Enduro Kasklar",
-    "Çene Açılır Kasklar",
-    "Çocuk Kaskları",
-  ];
-
-  const beden = ["2XL", "XL", "L", "M", "S", "XS"];
-
-  const renk = [
-    "SARI",
-    "MAVİ",
-    "YEŞİL",
-    "KIRMIZI",
-    "SİYAH",
-    "BEYAZ",
-    "MOR",
-    "KREM",
-  ];
-
-  const fiyat = [
-    "₺ 0.00 - ₺ 1,000.00",
-    "₺ 1,000.00 - ₺ 2,000.00",
-    "₺ 2,000.00 - ₺ 5,000.00",
-    "₺ 5,000.00 - ₺ 10,000.00",
-    "₺ 10,000.00 - ₺ 60,000.00",
-  ];
+  const productList = [
+    {
+      title: 'Alt Kategoriler',
+      subList: [
+        "Açık Kasklar",
+        "Buhar Camları",
+        "Kapalı Kasklar",
+        "Kask Camları",
+        "Kask Taşıma",
+        "Kask Yedek Parçaları",
+        "Kros ve Enduro Kasklar",
+        "Çene Açılır Kasklar",
+        "Çocuk Kaskları",
+      ]
+    },
+    {
+      title: 'Marka',
+      subList: ["AGV", "ARAI", "COX", "GIVI", "KAPPA"]
+    },
+    {
+      title: 'Beden',
+      subList: ["2XL", "XL", "L", "M", "S", "XS"]
+    },
+    {
+      title: 'Renk',
+      subList: [
+        "SARI",
+        "MAVİ",
+        "YEŞİL",
+        "KIRMIZI",
+        "SİYAH",
+        "BEYAZ",
+        "MOR",
+        "KREM",
+      ]
+    },
+    {
+      title: 'Fiyat',
+      subList: [
+        "₺ 0.00 - ₺ 1,000.00",
+        "₺ 1,000.00 - ₺ 2,000.00",
+        "₺ 2,000.00 - ₺ 5,000.00",
+        "₺ 5,000.00 - ₺ 10,000.00",
+        "₺ 10,000.00 - ₺ 60,000.00",
+      ]
+    },
+  ]
   return (
     <div className="overflow-x-hidden sticky top-0 h-50  pe-2 m-1 ps-1">
       {/* düeltme */}
-      <div>
-        <h4 className="p-5 ps-0 pb-3 fon">Filtreler</h4>
-        <hr className="text-dark d-none d-sm-block"></hr>
+      <h4 className="p-5 ps-0 pb-3 fon">Filtreler</h4>
+      <hr className="text-dark d-none d-sm-block"></hr>
+      {productList?.map((el, index) => {
+        return (
+          <div key={index}>
+            <SideBarComponent title={el.title} subList={el.subList} />
+          </div>
+        )
+      })}
+      {/* <div className="border border-primary">
         <p>
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
@@ -67,7 +83,6 @@ const SlideBar = () => {
               <span>{isOpen ? <FaAngleDown /> : <TfiMinus />}</span>
             </div>
           </div>
-
           <hr className="text-dark d-none d-sm-block"></hr>
         </p>
         <div className="collapse  " id="collapseExample1">
@@ -78,7 +93,7 @@ const SlideBar = () => {
           </ul>
         </div>
       </div>
-      <div>
+      <div className="border border-danger">
         <p>
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
@@ -231,7 +246,7 @@ const SlideBar = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
